@@ -1,200 +1,255 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Heart of Europe | Luxury Island Destination Dubai</title>
+    <title>The Heart of Europe | An Unprecedented Island Destination</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        :root {
+            --brand-dark: #002D5B;
+            --brand-cyan: #00B4D8;
+            --brand-purple: #7B2CBF;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #FAFBFD; }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
 
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+        .glass {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        .luxury-gradient {
-            background: linear-gradient(135deg, #002D5B 0%, #00B4D8 50%, #7B2CBF 100%);
+        .luxury-text-gradient {
+            background: linear-gradient(to right, #002D5B, #00B4D8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .fade-in {
-            animation: fadeIn 1.5s ease-out forwards;
+        .modern-shadow {
+            box-shadow: 0 20px 50px -12px rgba(0, 45, 91, 0.1);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .bento-item {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bento-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 30px 60px -15px rgba(0, 45, 91, 0.15);
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 overflow-x-hidden">
+<body class="text-slate-900">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center glass-effect rounded-full px-6 py-3 shadow-sm">
-            <div class="text-xl font-bold tracking-tighter text-[#002D5B]">THE HEART OF EUROPE</div>
-            <div class="hidden md:flex gap-8 text-sm font-medium uppercase tracking-widest text-slate-600">
-                <a href="#concept" class="hover:text-[#00B4D8] transition-colors">The Concept</a>
+    <!-- Ultra-Modern Nav -->
+    <nav class="fixed w-full z-50 px-4 py-6">
+        <div class="max-w-6xl mx-auto flex justify-between items-center glass rounded-full px-6 py-3 shadow-sm">
+            <a href="/" class="transition-transform hover:scale-105">
+                <img src="https://thoe.com/wp-content/themes/heartofeurope/assets/svg/logo.svg" alt="THOE Logo" class="h-8 md:h-10 w-auto">
+            </a>
+            <div class="hidden md:flex gap-10 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-500">
+                <a href="#concept" class="hover:text-[#00B4D8] transition-colors">The Vision</a>
                 <a href="#experiences" class="hover:text-[#00B4D8] transition-colors">Experiences</a>
                 <a href="#investment" class="hover:text-[#00B4D8] transition-colors">Investment</a>
             </div>
-            <a href="#download" class="bg-[#002D5B] text-white px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-[#00B4D8] transition-all shadow-lg">
+            <a href="#download" class="bg-[#002D5B] text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-[#00B4D8] transition-all shadow-lg">
                 Brochure
             </a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
-        <!-- Background Image Placeholder (Sourced from thoe.com) -->
+    <!-- Immersive Hero -->
+    <section class="relative h-screen w-full flex items-center justify-center overflow-hidden bg-slate-900">
         <div class="absolute inset-0 z-0">
-            <img src="https://d159guvtjjsjmp.cloudfront.net/uploads/2026/01/first-bg-1.png" alt="Heart of Europe Dubai" class="w-full h-full object-cover scale-105 animate-slow-zoom">
-            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-slate-50"></div>
+            <img src="https://d159guvtjjsjmp.cloudfront.net/uploads/2026/01/first-bg-1.png" alt="Heart of Europe Dubai" class="w-full h-full object-cover opacity-70 scale-110 animate-slow-zoom">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#FAFBFD] via-transparent to-black/30"></div>
         </div>
 
-        <div class="relative z-10 text-center px-4 fade-in">
-            <h1 class="text-5xl md:text-7xl lg:text-8xl text-white font-bold mb-6 leading-tight">
-                European Spirit,<br><span class="italic font-normal">Dubai Soul</span>
+        <div class="relative z-10 text-center px-6 max-w-5xl fade-in">
+            <h1 class="text-6xl md:text-8xl lg:text-9xl text-white font-bold mb-8 leading-[1.1] tracking-tight">
+                The Art of <br><span class="italic font-normal opacity-90">Island Living</span>
             </h1>
-            <p class="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light tracking-wide leading-relaxed">
-                An unprecedented archipelago of six themed islands, where Alpine snow meets tropical luxury in the heart of the World Islands.
+            <p class="text-white/80 text-lg md:text-2xl max-w-3xl mx-auto mb-12 font-light leading-relaxed tracking-wide">
+                An archipelago where European heritage meets the futuristic luxury of Dubai. A sanctuary designed for those who seek the extraordinary.
             </p>
-            <a href="#download" class="bg-white text-[#002D5B] px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-[#00B4D8] hover:text-white transition-all duration-500 shadow-2xl inline-block">
-                Download Exclusive Brochure
-            </a>
-        </div>
-    </section>
-
-    <!-- The Concept Section -->
-    <section id="concept" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-            <div class="fade-in">
-                <span class="text-[#00B4D8] font-semibold uppercase tracking-widest text-xs mb-4 block">A Visionary Escape</span>
-                <h2 class="text-4xl md:text-5xl font-bold text-[#002D5B] mb-6 leading-tight">A World Within <br>The World Islands</h2>
-                <p class="text-slate-600 text-lg leading-relaxed mb-6 font-light">
-                    The Heart of Europe is not just a destination; it is a conceptual masterpiece. By blending the culture, architecture, and experiences of Europe's most iconic regions with Dubai's avant-garde luxury, we have created a sanctuary of unprecedented beauty.
-                </p>
-                <p class="text-slate-600 text-lg leading-relaxed font-light">
-                    Across six themed islands, guests experience climate-controlled streets with rain, snow-capped plazas, and the serene elegance of floating villas.
-                </p>
-            </div>
-            <div class="relative fade-in" style="animation-delay: 0.2s">
-                <img src="https://d159guvtjjsjmp.cloudfront.net/uploads/2026/05/europe-island-cover.webp" alt="Island Concept" class="rounded-2xl shadow-2xl object-cover aspect-square w-full">
-                <div class="absolute -bottom-6 -left-6 glass-effect p-6 rounded-2xl shadow-xl max-w-xs">
-                    <p class="text-[#002D5B] font-bold text-xl">6 Themed Islands</p>
-                    <p class="text-slate-500 text-sm">A curated journey through European elegance.</p>
-                </div>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <a href="#download" class="bg-white text-[#002D5B] px-10 py-5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#00B4D8] hover:text-white transition-all duration-500 shadow-2xl inline-block">
+                    Request Brochure
+                </a>
+                <a href="#experiences" class="text-white border border-white/30 px-10 py-5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all backdrop-blur-sm inline-block">
+                    Explore the Islands
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Signature Experiences -->
-    <section id="experiences" class="py-24 bg-[#f8fafc]">
-        <div class="max-w-7xl mx-auto px-6 text-center mb-16">
-            <span class="text-[#7B2CBF] font-semibold uppercase tracking-widest text-xs mb-4 block">Unrivaled Luxury</span>
-            <h2 class="text-4xl md:text-5xl font-bold text-[#002D5B]">Signature Experiences</h2>
+    <!-- Editorial Vision Section -->
+    <section id="concept" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5 reveal">
+                <span class="text-[#00B4D8] font-semibold uppercase tracking-[0.3em] text-[10px] mb-6 block">The Masterplan</span>
+                <h2 class="text-5xl md:text-6xl font-bold text-[#002D5B] mb-8 leading-tight">Six Islands,<br>One Vision.</h2>
+                <div class="space-y-6 text-slate-600 text-lg font-light leading-relaxed">
+                    <p>The Heart of Europe is a conceptual marvel. We have meticulously blended the spirit of Europe's most iconic destinations with Dubai's limitless ambition.</p>
+                    <p>From the alpine snow of Sweden to the romantic canals of Venice, each island offers a distinct atmosphere, all while maintaining an uncompromising standard of luxury.</p>
+                </div>
+            </div>
+            <div class="lg:col-span-7 relative reveal" style="transition-delay: 0.2s">
+                <div class="relative z-10 overflow-hidden rounded-[2rem] shadow-2xl">
+                    <img src="https://d159guvtjjsjmp.cloudfront.net/uploads/2026/05/europe-island-cover.webp" alt="Island Concept" class="w-full object-cover hover:scale-105 transition-transform duration-1000">
+                </div>
+                <!-- Floating Design Element -->
+                <div class="absolute -top-10 -right-10 w-64 h-64 bg-[#00B4D8]/10 rounded-full blur-3xl -z-10"></div>
+                <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-[#7B2CBF]/10 rounded-full blur-3xl -z-10"></div>
+            </div>
         </div>
+    </section>
 
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-            <!-- Card 1 -->
-            <div class="group relative overflow-hidden rounded-3xl bg-white shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl fade-in" style="animation-delay: 0.1s">
-                <div class="h-64 overflow-hidden">
-                    <img src="https://d159guvtjjsjmp.cloudfront.net/uploads/2026/01/floating-venice-island.webp" alt="Underwater Luxury" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                </div>
-                <div class="p-8">
-                    <h3 class="text-2xl font-bold text-[#002D5B] mb-3">Underwater Luxury</h3>
-                    <p class="text-slate-500 font-light mb-6">Wake up to a panoramic view of the Arabian Gulf's marine life in our pioneering underwater resort.</p>
-                    <div class="h-1 w-12 bg-[#00B4D8] group-hover:w-full transition-all duration-500"></div>
-                </div>
+    <!-- Modern Bento Experiences -->
+    <section id="experiences" class="py-32 bg-[#F1F4F9]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 reveal">
+                <span class="text-[#7B2CBF] font-semibold uppercase tracking-[0.3em] text-[10px] mb-4 block">The Experience</span>
+                <h2 class="text-5xl md:text-6xl font-bold text-[#002D5B]">Unrivaled Splendor</h2>
             </div>
 
-            <!-- Card 2 -->
-            <div class="group relative overflow-hidden rounded-3xl bg-white shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl fade-in" style="animation-delay: 0.3s">
-                <div class="h-64 overflow-hidden">
-                    <img src="https://d159guvtjjsjmp.cloudfront.net/uploads/2026/01/honeymoon-island.webp" alt="Floating Elegance" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px]">
+                <!-- Large Feature: Underwater -->
+                <div class="md:col-span-8 md:row-span-2 bento-item relative overflow-hidden rounded-[2.5rem] bg-white shadow-sm group reveal">
+                    <img src="https://d159guvtjjsjmp.cloudfront.net/uploads/2026/01/floating-venice-island.webp" alt="Underwater Luxury" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#002D5B]/90 via-[#002D5B]/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-10 text-white">
+                        <h3 class="text-3xl font-bold mb-3">Underwater Luxury</h3>
+                        <p class="max-w-md font-light opacity-90">A subterranean sanctuary where the ocean becomes your living wallpaper. An architectural feat of the modern age.</p>
+                    </div>
                 </div>
-                <div class="p-8">
-                    <h3 class="text-2xl font-bold text-[#002D5B] mb-3">Floating Elegance</h3>
-                    <p class="text-slate-500 font-light mb-6">Experience the Buddha-Bar Floating Villas, where zen-inspired luxury meets the open sea.</p>
-                    <div class="h-1 w-12 bg-[#7B2CBF] group-hover:w-full transition-all duration-500"></div>
-                </div>
-            </div>
 
-            <!-- Card 3 -->
-            <div class="group relative overflow-hidden rounded-3xl bg-white shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl fade-in" style="animation-delay: 0.5s">
-                <div class="h-64 overflow-hidden">
-                    <img src="https://d159guvtjjsjmp.cloudfront.net/uploads/2026/01/sweden-island.webp" alt="Viking Grandeur" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <!-- Smaller Feature: Floating Villas -->
+                <div class="md:col-span-4 bento-item relative overflow-hidden rounded-[2.5rem] bg-white shadow-sm group reveal" style="transition-delay: 0.1s">
+                    <img src="https://d159guvtjjsjmp.cloudfront.net/uploads/2026/01/honeymoon-island.webp" alt="Floating Elegance" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#7B2CBF]/90 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8 text-white">
+                        <h3 class="text-xl font-bold mb-2">Floating Elegance</h3>
+                        <p class="text-sm font-light opacity-80">Buddha-Bar Floating Villas. Zen meets the sea.</p>
+                    </div>
                 </div>
-                <div class="p-8">
-                    <h3 class="text-2xl font-bold text-[#002D5B] mb-3">Viking Grandeur</h3>
-                    <p class="text-slate-500 font-light mb-6">Six-storey Swedish Viking mansions furnished with Bentley Home Italian craftsmanship.</p>
-                    <div class="h-1 w-12 bg-[#002D5B] group-hover:w-full transition-all duration-500"></div>
+
+                <!-- Smaller Feature: Viking Mansions -->
+                <div class="md:col-span-4 bento-item relative overflow-hidden rounded-[2.5rem] bg-white shadow-sm group reveal" style="transition-delay: 0.2s">
+                    <img src="https://d159guvtjjsjmp.cloudfront.net/uploads/2026/01/sweden-island.webp" alt="Viking Grandeur" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#00B4D8]/90 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8 text-white">
+                        <h3 class="text-xl font-bold mb-2">Viking Grandeur</h3>
+                        <p class="text-sm font-light opacity-80">Swedish Viking mansions. Bentley Home furnishings.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Investment Power -->
-    <section id="investment" class="py-24 luxury-gradient relative overflow-hidden">
-        <div class="absolute inset-0 opacity-20 pointer-events-none">
-            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <circle cx="10" cy="10" r="20" fill="white" />
-                <circle cx="90" cy="80" r="30" fill="white" />
-            </svg>
-        </div>
-
-        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 fade-in">
-            <h2 class="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">Investment Excellence</h2>
-            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-12 rounded-3xl shadow-2xl">
-                <p class="text-white/80 text-xl mb-4 font-light uppercase tracking-widest">Guaranteed Returns</p>
-                <div class="text-6xl md:text-8xl font-bold text-white mb-6">100% <span class="text-sm align-middle uppercase tracking-tighter">Net Guaranteed ROI</span></div>
-                <p class="text-white/70 text-lg leading-relaxed font-light">
-                    A secure, world-class investment opportunity managed by the InterContinental and IHG Groups, ensuring legacy and profitability.
-                </p>
+    <!-- Sophisticated Investment -->
+    <section id="investment" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="relative reveal">
+                    <div class="aspect-square rounded-full luxury-gradient p-1 animate-pulse">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
+                            <img src="https://d159guvtjjsjmp.cloudfront.net/uploads/2026/01/first-bg-1.png" alt="ROI" class="w-full h-full object-cover opacity-40">
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center">
+                            <span class="text-6xl md:text-8xl font-bold text-[#002D5B]">100%</span>
+                            <p class="text-[10px] uppercase tracking-[0.4em] font-bold text-[#00B4D8] mt-2">Net Guaranteed ROI</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal" style="transition-delay: 0.2s">
+                    <span class="text-[#00B4D8] font-semibold uppercase tracking-[0.3em] text-[10px] mb-6 block">Investment Power</span>
+                    <h2 class="text-5xl font-bold text-[#002D5B] mb-8 leading-tight">A Legacy of <br>Profitability.</h2>
+                    <p class="text-slate-600 text-lg leading-relaxed font-light mb-8">
+                        Invest in a world-class asset managed by the InterContinental and IHG Groups. Our guaranteed ROI model ensures your investment is not only secure but exponentially rewarding.
+                    </p>
+                    <div class="flex gap-8 border-t border-slate-100 pt-8">
+                        <div>
+                            <p class="text-2xl font-bold text-[#002D5B]">Global</p>
+                            <p class="text-xs text-slate-400 uppercase tracking-widest">Management</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-[#002D5B]">Secure</p>
+                            <p class="text-xs text-slate-400 uppercase tracking-widest">Assets</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Brochure Download Section -->
-    <section id="download" class="py-24 px-6 max-w-7xl mx-auto text-center">
-        <div class="max-w-2xl mx-auto glass-effect p-12 rounded-[3rem] shadow-2xl border-t-4 border-[#00B4D8] fade-in">
-            <h2 class="text-4xl font-bold text-[#002D5B] mb-4">Enter the World of Luxury</h2>
-            <p class="text-slate-500 mb-10">Request our comprehensive digital brochure to explore floor plans, amenities, and pricing.</p>
+    <!-- Modern Lead Capture -->
+    <section id="download" class="py-32 px-6">
+        <div class="max-w-4xl mx-auto relative">
+            <div class="absolute inset-0 luxury-gradient rounded-[3rem] blur-3xl opacity-20"></div>
+            <div class="relative z-10 glass p-12 md:p-20 rounded-[3rem] shadow-2xl text-center border border-white">
+                <h2 class="text-4xl md:text-6xl font-bold text-[#002D5B] mb-6">Secure Your Piece of Paradise</h2>
+                <p class="text-slate-500 text-lg mb-12 max-w-xl mx-auto font-light">Join the elite few. Request our comprehensive digital brochure to explore the full vision.</p>
 
-            <form class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-                <div class="space-y-2">
-                    <label class="text-xs font-semibold uppercase tracking-wider text-slate-400 ml-1">Full Name</label>
-                    <input type="text" placeholder="John Doe" class="w-full px-6 py-4 rounded-2xl bg-slate-100 border-transparent focus:border-[#00B4D8] focus:bg-white focus:ring-0 transition-all outline-none">
-                </div>
-                <div class="space-y-2">
-                    <label class="text-xs font-semibold uppercase tracking-wider text-slate-400 ml-1">Email Address</label>
-                    <input type="email" placeholder="john@luxury.com" class="w-full px-6 py-4 rounded-2xl bg-slate-100 border-transparent focus:border-[#00B4D8] focus:bg-white focus:ring-0 transition-all outline-none">
-                </div>
-                <button type="submit" class="md:col-span-2 bg-[#002D5B] text-white py-5 rounded-2xl font-bold uppercase tracking-widest hover:bg-[#00B4D8] transition-all duration-500 shadow-xl transform hover:scale-[1.02]">
-                    Get the Brochure
-                </button>
-            </form>
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                    <div class="text-left group">
+                        <input type="text" placeholder="Full Name" class="w-full px-6 py-5 rounded-2xl bg-white/50 border border-slate-200 focus:border-[#00B4D8] focus:ring-4 focus:ring-[#00B4D8]/10 transition-all outline-none placeholder:text-slate-400">
+                    </div>
+                    <div class="text-left group">
+                        <input type="email" placeholder="Email Address" class="w-full px-6 py-5 rounded-2xl bg-white/50 border border-slate-200 focus:border-[#00B4D8] focus:ring-4 focus:ring-[#00B4D8]/10 transition-all outline-none placeholder:text-slate-400">
+                    </div>
+                    <button type="submit" class="md:col-span-2 bg-[#002D5B] text-white py-6 rounded-2xl font-bold uppercase tracking-widest hover:bg-[#00B4D8] transition-all duration-500 shadow-2xl transform hover:-translate-y-1">
+                        Request Brochure
+                    </button>
+                </form>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-12 border-t border-slate-200 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-lg font-bold tracking-tighter text-[#002D5B]">THE HEART OF EUROPE</div>
-            <div class="flex gap-6 text-xs font-medium uppercase tracking-widest text-slate-400">
-                <a href="#" class="hover:text-[#00B4D8] transition-colors">Privacy Policy</a>
-                <a href="#" class="hover:text-[#00B4D8] transition-colors">Terms of Use</a>
-                <a href="https://www.thoe.com" target="_blank" class="hover:text-[#00B4D8] transition-colors">Official Website</a>
+    <!-- Minimalist Footer -->
+    <footer class="py-16 border-t border-slate-100 px-6 bg-white">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <img src="https://thoe.com/wp-content/themes/heartofeurope/assets/svg/logo.svg" alt="THOE Logo" class="h-8 w-auto grayscale opacity-60 hover:grayscale-0 transition-all">
+            <div class="flex gap-10 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                <a href="#" class="hover:text-[#00B4D8] transition-colors">Privacy</a>
+                <a href="#" class="hover:text-[#00B4D8] transition-colors">Terms</a>
+                <a href="https://www.thoe.com" target="_blank" class="hover:text-[#00B4D8] transition-colors">Official Site</a>
             </div>
-            <div class="text-slate-400 text-xs">
+            <div class="text-slate-300 text-[10px] uppercase tracking-widest">
                 &copy; 2026 Heart of Europe. All Rights Reserved.
             </div>
         </div>
     </footer>
 
+    <script>
+        // Reveal animations on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
