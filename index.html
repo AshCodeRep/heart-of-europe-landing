@@ -205,17 +205,27 @@
                 <h2 class="text-4xl md:text-6xl font-bold text-[#002D5B] mb-6">Secure Your Piece of Paradise</h2>
                 <p class="text-slate-500 text-lg mb-12 max-w-xl mx-auto font-light">Join the elite few. Request our comprehensive digital brochure to explore the full vision.</p>
 
-                <form class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                <form id="brochure-form" class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
                     <div class="text-left group">
-                        <input type="text" placeholder="Full Name" class="w-full px-6 py-5 rounded-2xl bg-white/50 border border-slate-200 focus:border-[#00B4D8] focus:ring-4 focus:ring-[#00B4D8]/10 transition-all outline-none placeholder:text-slate-400">
+                        <input type="text" id="user-name" placeholder="Full Name" required class="w-full px-6 py-5 rounded-2xl bg-white/50 border border-slate-200 focus:border-[#00B4D8] focus:ring-4 focus:ring-[#00B4D8]/10 transition-all outline-none placeholder:text-slate-400">
                     </div>
                     <div class="text-left group">
-                        <input type="email" placeholder="Email Address" class="w-full px-6 py-5 rounded-2xl bg-white/50 border border-slate-200 focus:border-[#00B4D8] focus:ring-4 focus:ring-[#00B4D8]/10 transition-all outline-none placeholder:text-slate-400">
+                        <input type="email" id="user-email" placeholder="Email Address" required class="w-full px-6 py-5 rounded-2xl bg-white/50 border border-slate-200 focus:border-[#00B4D8] focus:ring-4 focus:ring-[#00B4D8]/10 transition-all outline-none placeholder:text-slate-400">
                     </div>
-                    <button type="submit" class="md:col-span-2 bg-[#002D5B] text-white py-6 rounded-2xl font-bold uppercase tracking-widest hover:bg-[#00B4D8] transition-all duration-500 shadow-2xl transform hover:-translate-y-1">
+                    <button type="submit" id="submit-btn" class="md:col-span-2 bg-[#002D5B] text-white py-6 rounded-2xl font-bold uppercase tracking-widest hover:bg-[#00B4D8] transition-all duration-500 shadow-2xl transform hover:-translate-y-1">
                         Request Brochure
                     </button>
                 </form>
+                <div id="success-msg" class="hidden flex-col items-center justify-center space-y-6 py-10 animate-fade-in">
+                    <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <h3 class="text-3xl font-bold text-[#002D5B]">Thank You, <span id="display-name"></span>!</h3>
+                    <p class="text-slate-500 max-w-sm mx-auto">Your exclusive brochure is now downloading. We have also sent a copy to your email.</p>
+                    <a href="https://www.thoe.com" target="_blank" class="text-[#00B4D8] font-semibold uppercase tracking-widest text-xs hover:underline">Visit Official Website &rarr;</a>
+                </div>
             </div>
         </div>
     </section>
@@ -250,6 +260,48 @@
         }, observerOptions);
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Brochure Download Logic
+        const brochureForm = document.getElementById('brochure-form');
+        const successMsg = document.getElementById('success-msg');
+        const submitBtn = document.getElementById('submit-btn');
+        const displayName = document.getElementById('display-name');
+
+        brochureForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('user-name').value;
+            const email = document.getElementById('user-email').value;
+
+            if(!name || !email) return;
+
+            // Update button state
+            const originalText = submitBtn.innerText;
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Processing...';
+            submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+
+            // Simulate network latency
+            await new Promise(resolve => setTimeout(resolve, 1500));
+
+            // 1. Trigger a "simulated" PDF download
+            const brochureContent = `THE HEART OF EUROPE - EXCLUSIVE BROCHURE\n\nWelcome ${name},\n\nThank you for your interest in The Heart of Europe. \n\nThis is a prototype brochure generated for your request.\n\nDiscover a world of luxury at https://www.thoe.com`;
+            const blob = new Blob([brochureContent], { type: 'application/pdf' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Heart_of_Europe_Brochure.pdf';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+
+            // 2. Transition UI to success state
+            brochureForm.classList.add('hidden');
+            successMsg.classList.remove('hidden');
+            successMsg.classList.add('flex');
+            displayName.innerText = name;
+        });
     </script>
 </body>
 </html>
